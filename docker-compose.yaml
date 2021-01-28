@@ -4,16 +4,16 @@ services:
   sqldb:
     image: mcr.microsoft.com/mssql/server:2019-latest
     volumes:
-      - type: bind
-        source: ./sqldata
+      - type: volume
+        source: sqldata
         target: /var/opt/mssql/data
         read_only: false
-      - type: bind
-        source: ./sqllog
+      - type: volume
+        source: sqllog
         target: /var/opt/mssql/log
         read_only: false
-      - type: bind
-        source: ./sqlsecrets
+      - type: volume
+        source: sqlsecrets
         target: /var/opt/mssql/secrets
         read_only: false
     ports:
@@ -34,6 +34,11 @@ services:
       - USE_SQL_SERVER=true      
     depends_on: 
       - sqldb   
+
+volumes:
+  sqldata:
+  sqllog:
+  sqlsecrets:
 
 networks:
   todo-net:
