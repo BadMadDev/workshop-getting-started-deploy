@@ -23,7 +23,7 @@ services:
       todo-net:
     environment:
       - ACCEPT_EULA=Y
-      - SA_PASSWORD="P@ssw0rd123!"
+      - SA_PASSWORD=P@ssw0rd123!
 
   workshop-getting-started-website:
     image: maddev77/workshop-getting-started:linux-latest
