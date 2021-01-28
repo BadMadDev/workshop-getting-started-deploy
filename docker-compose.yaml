@@ -3,6 +3,7 @@ version: '3.8'
 services:
   sqldb:
     image: mcr.microsoft.com/mssql/server:2019-latest
+    user: root
     volumes:
       - type: volume
         source: sqldata
